@@ -14,5 +14,7 @@ X, Y = np.meshgrid(x_window, y_window)
 # plt.quiver(X, Y, X, Y)
 # plt.show()
 for i in X:
+    accumulator = []
     for j in i:
-        print(j**2)
+        accumulator.append(j+1)
+    print(accumulator)
