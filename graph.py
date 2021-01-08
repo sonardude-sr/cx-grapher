@@ -11,5 +11,8 @@ def get_list(a, b, c):
 x_window = get_list(0, 10, 1)
 y_window = get_list(0, 10, 1)
 X, Y = np.meshgrid(x_window, y_window)
-plt.quiver(X, Y, X, Y)
-plt.show()
+# plt.quiver(X, Y, X, Y)
+# plt.show()
+for i in X:
+    for j in i:
+        print(j**2)
