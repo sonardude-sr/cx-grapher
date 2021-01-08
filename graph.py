@@ -8,13 +8,20 @@ def get_list(a, b, c):
     return values
 
 
-x_window = get_list(0, 10, 1)
-y_window = get_list(0, 10, 1)
+def transform_array(a, add, multiply):
+    out_list = []
+    for i in a:
+        accumulator = []
+        for j in i:
+            accumulator.append((multiply * j) + add)
+        out_list.append(accumulator)
+    return out_list
+
+
+x_window = get_list(0, 50, 5)
+y_window = get_list(0, 50, 5)
 X, Y = np.meshgrid(x_window, y_window)
-# plt.quiver(X, Y, X, Y)
-# plt.show()
-for i in X:
-    accumulator = []
-    for j in i:
-        accumulator.append(j+1)
-    print(accumulator)
+
+
+plt.quiver(X, Y, transform_array(X, 0, 1), transform_array(Y, 0, 1))
+plt.show()
