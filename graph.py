@@ -8,16 +8,6 @@ def get_list(a, b, c):
     return values
 
 
-# def transform_array(a, add, multiply):
-#     complex_list = []
-#     for i in a:
-#         accumulator = []
-#         for j in i:
-#             accumulator.append((multiply * j) + add)
-#         complex_list.append(accumulator)
-#     return complex_list
-
-
 def transform_meshgrid(x_mesh, y_mesh):
     accumulator_list = []
     imaginary_parts = []
