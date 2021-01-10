@@ -8,7 +8,7 @@ def get_list(a, b, c):
     return values
 
 
-def transform_meshgrid(x_mesh, y_mesh):
+def transform_mesh_grid(x_mesh, y_mesh):
     accumulator_list = []
     imaginary_parts = []
     real_parts = []
@@ -22,13 +22,13 @@ def transform_meshgrid(x_mesh, y_mesh):
     return real_parts, imaginary_parts
 
 
-x_window = get_list(-5, 5, 1)
-y_window = get_list(-5, 5, 1)
+x_window = get_list(-100, 100, 20)
+y_window = get_list(-100, 100, 20)
 X, Y = np.meshgrid(x_window, y_window)
-U, V = transform_meshgrid(X, Y)
+U, V = transform_mesh_grid(X, Y)
 U = np.array(U)
 V = np.array(V)
 plt.quiver(X, Y, U - X.flatten(), V - Y.flatten())
-
+plt.xlabel("Real Numbers")
+plt.ylabel("Imaginary Numbers")
 plt.show()
-
