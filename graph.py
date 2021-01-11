@@ -19,7 +19,7 @@ def transform_mesh_grid(x_mesh, y_mesh):
     real_parts = []
     for i, j in zip(np.array(x_mesh).flatten(), np.array(y_mesh).flatten()):
         n = complex(i, j)
-        n = n ** 2
+        n = (n - 5) ** 2
         accumulator_list.append(n)
     for i in accumulator_list:
         real_parts.append(i.real)
@@ -46,7 +46,6 @@ def normalize_vectors(u, v):
             vec = vec/np.linalg.norm(vec)
             u_out.append(vec[0])
             v_out.append(vec[1])
-            print(vec)
         else:
             u_out.append(0)
             v_out.append(0)
@@ -63,8 +62,8 @@ def color_list(u, v):
 
 
 def draw_graph(x, y, u, v):
-    u = u - x.flatten()
-    v = v - y.flatten()
+    u -= x.flatten()
+    v -= y.flatten()
     c = color_list(u, v)
     u, v = normalize_vectors(u, v)
     plt.quiver(x, y, u, v, c)
