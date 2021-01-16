@@ -19,7 +19,7 @@ def transform_mesh_grid(x_mesh, y_mesh):
     real_parts = []
     for i, j in zip(np.array(x_mesh).flatten(), np.array(y_mesh).flatten()):
         n = complex(i, j)
-        n = (n - 5) ** 2
+        n = n ** 2  # Change this line to whatever function you'd like
         accumulator_list.append(n)
     for i in accumulator_list:
         real_parts.append(i.real)
@@ -28,7 +28,7 @@ def transform_mesh_grid(x_mesh, y_mesh):
 
 
 def create_arrow_arrays():
-    x_window = get_list(-10, 10, 2)
+    x_window = get_list(-10, 10, 2)  # Change these lists to adjust the window
     y_window = get_list(-10, 10, 2)
     x, y = np.meshgrid(x_window, y_window)
     u, v = transform_mesh_grid(x, y)
@@ -73,8 +73,8 @@ def draw_graph(x, y, u, v):
 
 
 def main():
-    X, Y, U, V = create_arrow_arrays()
-    draw_graph(X, Y, U, V)
+    x, y, u, v = create_arrow_arrays()
+    draw_graph(x, y, u, v)
 
 
 main()
